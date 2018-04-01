@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: mark-api
+
+server:
+  port: 8080
+  servlet:
+    context-path: /mark-api
+
+management:
+  security:
+    enabled: false
+
+mark-service:
+  ribbon:
+    listOfServers: http://127.0.0.1:9003
+
+location-service:
+  ribbon:
+    listOfServers: http://127.0.0.1:9005
+
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 50000
+
+logging:
+  com.yong: DEBUG
+
+
+#feign:
+#  hystrix:
+#    enabled: true
+#  compression:
+#    request.enabled: true
+#    response:enabled: true
+
+
+ribbon:
+  eureka:
+    enabled: false
+
+logging:
+  level:
+    com.yong: DEBUG
+    org.springframework.cloud.config.client: DEBUG
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
