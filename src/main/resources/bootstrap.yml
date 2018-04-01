@@ -13,11 +13,11 @@ management:
 
 mark-service:
   ribbon:
-    listOfServers: http://yong-mark-service:9003
+    listOfServers: http://VM_185_152_centos:9003
 
 location-service:
   ribbon:
-    listOfServers: http://yong-location-service:9004
+    listOfServers: http://VM_185_152_centos:9004
 
 
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 50000
