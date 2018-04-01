@@ -5,7 +5,7 @@ spring:
 server:
   port: 8080
   servlet:
-    context-path: /mark-api
+    context-path: /mark/api
 
 management:
   security:
@@ -13,11 +13,11 @@ management:
 
 mark-service:
   ribbon:
-    listOfServers: http://127.0.0.1:9003
+    listOfServers: http://yong-mark-service:9003
 
 location-service:
   ribbon:
-    listOfServers: http://127.0.0.1:9005
+    listOfServers: http://yong-location-service:9004
 
 
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 50000
