@@ -28,7 +28,6 @@ class MarkClientFallback implements MarkClient {
     public String hello() {
         return "fallback for MarkClient";
     }
-
     @Override
     public List<Mark> getAllMark() {
         return null;

@@ -1,5 +1,6 @@
 package com.yong.api.controller;
 
+import com.yong.api.client.DemoClient;
 import com.yong.api.client.LocationClient;
 import com.yong.api.client.MarkClient;
 import com.yong.api.service.LocationService;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -21,6 +23,7 @@ public class DemoController {
 
     private final LocationService locationService;
     private final MarkClient markClient;
+    private final DemoClient demoClient;
 
     @GetMapping("/hello")
     public String hello(){
@@ -36,6 +39,13 @@ public class DemoController {
         String hello = markClient.hello();
         CompletableFuture.allOf(location).join();
         return location.get().concat(hello);
+    }
+
+    @GetMapping("/test")
+    public String testDevTools(HttpServletRequest request) {
+        String authorization = request.getHeader("Authorization");
+        log.debug("Authorization = {}", authorization);
+        return demoClient.test();
     }
 
 }

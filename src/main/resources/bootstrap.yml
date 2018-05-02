@@ -13,11 +13,11 @@ management:
 
 mark-service:
   ribbon:
-    listOfServers: http://139.199.189.64:9003
+    listOfServers: http://yong-mark-service.64:9003
 
 location-service:
   ribbon:
-    listOfServers: http://139.199.189.64:9004
+    listOfServers: http://yong-location-service:9004
 
 
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 50000
@@ -41,7 +41,6 @@ ribbon:
 logging:
   level:
     com.yong: DEBUG
-    org.springframework.cloud.config.client: DEBUG
 
 feign:
   client:
