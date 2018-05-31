@@ -12,9 +12,9 @@ import java.util.List;
  * @date 2017/12/10
  */
 
-@FeignClient(name = "mark-service", path = "mark", fallback = MarkClientFallback.class)
+@FeignClient(name = "mark-service",  fallback = MarkClientFallback.class)
 public interface MarkClient {
-    @GetMapping("/hello")
+    @GetMapping("/demo/hello")
     String hello();
 
     @GetMapping("/mark")
